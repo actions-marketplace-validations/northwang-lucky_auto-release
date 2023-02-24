@@ -1,0 +1,24 @@
+name: Release by Latest Tag and Changelog
+description: Create a release by latest tag and change log. For personal use only.
+author: northwang-lucky
+
+branding:
+  icon: upload-cloud
+  color: blue
+
+inputs:
+  filepath:
+    description: Path of CHANGELOG.md
+    required: true
+  github-token:
+    description: >-
+      Workflow will generate a GITHUB_TOKEN in secrets automatically, 
+      you can direct use "secrets.GITHUB_TOKEN"
+    required: true
+  branch:
+    description: Release branch (defaults main)
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
