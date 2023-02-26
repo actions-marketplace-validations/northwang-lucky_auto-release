@@ -58,13 +58,13 @@ function extractLatestTagAndChangelog() {
         const [latestVersion, perviousVersion] = tags.map((tag) => tag.replace(/^v/, ""));
         const startMatcher = changelogContent.match(RegExp(`\n[#]{2,3} \\[?${latestVersion.split(".").join("\\.")}\\]?`));
         const endMatcher = changelogContent.match(RegExp(`\n[#]{2,3} \\[?${perviousVersion.split(".").join("\\.")}\\]?`));
-        if (!startMatcher || !endMatcher) {
+        if (!startMatcher) {
             console.error(changelogContent, startMatcher, endMatcher);
             throw new Error("Extract changelog failed!");
         }
         return [
             tags[0],
-            changelogContent.slice(startMatcher.index, endMatcher.index),
+            changelogContent.slice(startMatcher.index, endMatcher === null || endMatcher === void 0 ? void 0 : endMatcher.index),
         ];
     });
 }

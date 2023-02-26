@@ -66,12 +66,12 @@ async function extractLatestTagAndChangelog(): Promise<[string, string]> {
     RegExp(`\n[#]{2,3} \\[?${perviousVersion.split(".").join("\\.")}\\]?`)
   );
 
-  if (!startMatcher || !endMatcher) {
+  if (!startMatcher) {
     console.error(changelogContent, startMatcher, endMatcher);
     throw new Error("Extract changelog failed!");
   }
   return [
     tags[0],
-    changelogContent.slice(startMatcher.index, endMatcher.index),
+    changelogContent.slice(startMatcher.index, endMatcher?.index),
   ];
 }
