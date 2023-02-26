@@ -56,8 +56,12 @@ function extractLatestTagAndChangelog() {
         const tags = yield getLatestTwoTags();
         const changelogContent = yield getChangelogContent();
         const [latestVersion, perviousVersion] = tags.map((tag) => tag.replace(/^v/, ""));
-        const startMatcher = changelogContent.match(RegExp(`\n[#]{2,3} \\[?${latestVersion.split(".").join("\\.")}\\]?`));
-        const endMatcher = changelogContent.match(RegExp(`\n[#]{2,3} \\[?${perviousVersion.split(".").join("\\.")}\\]?`));
+        const startMatcher = latestVersion
+            ? changelogContent.match(RegExp(`\n[#]{2,3} \\[?${latestVersion.split(".").join("\\.")}\\]?`))
+            : null;
+        const endMatcher = perviousVersion
+            ? changelogContent.match(RegExp(`\n[#]{2,3} \\[?${perviousVersion.split(".").join("\\.")}\\]?`))
+            : null;
         if (!startMatcher) {
             console.error(changelogContent, startMatcher, endMatcher);
             throw new Error("Extract changelog failed!");
