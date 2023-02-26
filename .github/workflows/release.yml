@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v**
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    permissions:
+      contents: write
+    steps:
+      - name: Release
+        uses: northwang-lucky/auto-release@v0.0.1
+        with:
+          filepath: CHANGELOG.md
+          github-token: ${{ secrets.GITHUB_TOKEN }}
