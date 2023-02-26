@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/northwang-lucky/auto-release/compare/v0.0.2...v0.0.3) (2023-02-26)
+
+
+### Bug Fixes
+
+* **core.ts:** fix the  nullpointer error of perviousVersion ([689a9e1](https://github.com/northwang-lucky/auto-release/commit/689a9e1df1f91f2ad9037b2ff1333bc89600ed72))
+
 ### [0.0.2](https://github.com/northwang-lucky/auto-release/compare/v0.0.1...v0.0.2) (2023-02-26)
 
 

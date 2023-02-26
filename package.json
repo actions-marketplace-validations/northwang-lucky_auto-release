@@ -1,6 +1,6 @@
 {
   "name": "auto-release",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Webhook calls of custom BOT that support DingTalk, Lark and WeCom",
   "main": "lib/main.js",
   "author": "northwang <69568203+northwang-lucky@users.noreply.github.com>",
